@@ -15,9 +15,14 @@
 		<a href="${HomePageHref}"> <img src="${logoSrc}"
 			alt="National Park Geek Logo" />
 		</a>
-		<form name="headerButtons" method="POST">
-		<input type="button" value="Home"/> <input type="button" value="Survey"/> 
+		<form name="headerButtons" method="GET">
+		<input type="button" value="Home"/> 
+	</form>
+	<form method="GET" action="webapp/WEB-INF/jsp/survey">
+		<button type="submit">Survey</button> 
 		</form>
+		<a href="<c:url value="/survey"/>">Survey</a>
 	</header>
 </body>
 </html>
+
