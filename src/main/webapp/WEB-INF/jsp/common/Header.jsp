@@ -17,12 +17,15 @@
 		</a>
 		<form name="headerButtons" method="GET">
 		<input type="button" value="Home"/> 
+		<button type="submit" formaction="/45-m3-java-capstone/survey">Survey</button> 
 	</form>
-	<form method="GET" action="webapp/WEB-INF/jsp/survey">
-		<button type="submit">Survey</button> 
-		</form>
-		<a href="<c:url value="/survey"/>">Survey</a>
+	
+		
+		
+		
+		
 	</header>
 </body>
 </html>
 
+ 
