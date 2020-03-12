@@ -21,21 +21,21 @@
 		</tr>
 		
 		<tr>
-			<td>Campsites: ${park.numOfCampsites}</td>
-			<td>Visitors: ${park.annualVisitors}/yr</td>
-			<td>Entry Fee: $${park.entryFee}</td>
+			<td>Acreage: ${park.acreage}</td>
+			<td>Elevation: ${park.elevationInFt} ft</td>
+			<td>Species: ${park.numAnimalSpecies}</td>
 		</tr>
 		
 		<tr>
-			<td>Acreage: ${park.acreage}</td>
-			<td>Elevation: ${park.elevationInFt} ft</td>
+			<td>Campsites: ${park.numOfCampsites}</td>
+			<td>Entry Fee: $${park.entryFee}</td>
 			<td>Trail Length: ${park.milesOfTrail} mi</td>
 		</tr>
 		
 		<tr>
-			<td>Unique Species: ${park.numAnimalSpecies}</td>
 			<td>Climate: ${park.climate}</td>
 			<td>Founded: ${park.yearFounded}</td>
+			<td>Visitors: ${park.annualVisitors}/yr</td>
 		</tr>
 		
 	</table>
