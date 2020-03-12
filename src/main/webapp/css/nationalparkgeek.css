@@ -1,10 +1,8 @@
-﻿body {
-	background-color: #FFFFFF;
-	font-family: sans-serif;
-}
+﻿/* HEADER CSS */
 
 header {
 	margin: 25px;
+	background-color: #FFBF00;
 }
 
 header h1 {
@@ -20,3 +18,23 @@ header p {
 header img {
 	height: 110px;
 }
+
+
+
+/* BODY CSS */
+
+body {
+	background-color: #FFFFFF;
+	font-family: sans-serif;
+	
+}
+
+/* HOMEPAGE.JSP CSS */
+.home > .homeImage {
+	text-align: left;
+}
+
+.home > .homeText {
+	display: flex;
+}
+
