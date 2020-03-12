@@ -9,6 +9,10 @@ public class Weather {
 	private String forecast;
 	private String weatherMessage;
 	
+	public Weather() {
+		
+	}
+	
 	public String getParkCode() {
 		return parkCode;
 	}
