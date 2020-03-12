@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 public class ParkJDBC extends Park implements ParkDAO {
 
 	private JdbcTemplate jdbcTemplate;
-	
 	@Autowired
 	public ParkJDBC (DataSource dataSource){
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
