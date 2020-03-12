@@ -65,10 +65,16 @@ body {
 
 /* HOMEPAGE.JSP CSS */
 .home > .homeImage {
-	text-align: left;
+	
 }
 
-.home > .homeText {
-	display: flex;
+.home {
+	display: grid;
+	grid-template-columns: 1fr 3fr; 
+	grid-template-rows: 300px; 
+	grid-gap: 10px 20px; 
+	padding-top: 10px; 
+	padding-left: 15px;
+	
 }
 

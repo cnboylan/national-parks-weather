@@ -28,11 +28,14 @@
 			<h2><c:out value="${park.parkName}" /></h2>
 			</div>
 			
-			<div class="homeText">
+			<div class="homeState">
 			<c:out value="${park.state}" /><br><br>
-			<c:out value="${park.description}" /> <br><br><br><br>
-			
 			</div>
+			
+			<div>
+			<c:out value="${park.description}" /> <br><br><br><br>
+			</div>
+			
 	</div>
 </c:forEach>
 
