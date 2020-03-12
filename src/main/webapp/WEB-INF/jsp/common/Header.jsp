@@ -15,9 +15,17 @@
 		<a href="${HomePageHref}"> <img src="${logoSrc}"
 			alt="National Park Geek Logo" />
 		</a>
-		<form name="headerButtons" method="POST">
-		<input type="button" value="Home"/> <input type="button" value="Survey"/> 
-		</form>
+		<form name="headerButtons" method="GET">
+		<input type="button" value="Home"/> 
+		<button type="submit" formaction="/45-m3-java-capstone/survey">Survey</button> 
+	</form>
+	
+		
+		
+		
+		
 	</header>
 </body>
 </html>
+
+ 

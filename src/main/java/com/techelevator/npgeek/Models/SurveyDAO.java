@@ -1,13 +1,14 @@
 package com.techelevator.npgeek.Models;
 
+import java.util.List;
+
 public interface SurveyDAO {
 
+
+
+
+	public void saveSurvey(String parkCode, String emailAddress, String state, String activityLevel);
 	
-	
-	
-	
-	List<Song> getAllSongs();
-	List<Song> getAllRequests();
-	boolean saveRequest(Song request);
+	public List<SurveyResults> getAllSurveyResults();
 }
-}
+
