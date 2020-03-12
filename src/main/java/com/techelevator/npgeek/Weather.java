@@ -8,6 +8,10 @@ public class Weather {
 	private int high;
 	private String forecast;
 	
+	public Weather() {
+		
+	}
+	
 	public String getParkCode() {
 		return parkCode;
 	}

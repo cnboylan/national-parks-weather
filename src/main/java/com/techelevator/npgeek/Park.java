@@ -18,6 +18,10 @@ public class Park {
 	private int entryFee;
 	private int numAnimalSpecies;
 	
+	public Park() {
+		
+	}
+	
 	public String getParkCode() {
 		return parkCode;
 	}
