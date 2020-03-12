@@ -22,9 +22,9 @@
 			</div>
 			
 			<div class="homeText">
-			<h2><c:out value="${park.name}" /></h2><br>
+			<h2><c:out value="${park.parkName}" /></h2><br>
 			<c:out value="${park.state}" />
-			<c:out value="${park.parkDescription}" /> 
+			<c:out value="${park.description}" /> 
 			
 			</div>
 	</div>
