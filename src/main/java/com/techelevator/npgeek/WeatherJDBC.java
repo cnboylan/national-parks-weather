@@ -21,8 +21,8 @@ private JdbcTemplate jdbcTemplate;
 		Weather weather = new Weather();
 		weather.setParkCode(results.getString("parkcode"));
 		weather.setDay(results.getInt("fivedayforecastvalue"));
-		weather.setLow(results.getInt("low"));
-		weather.setHigh(results.getInt("high"));
+		weather.setLowTemp(results.getInt("low"));
+		weather.setHighTemp(results.getInt("high"));
 		weather.setForecast(results.getString("forecast"));
 		return weather;
 	}
