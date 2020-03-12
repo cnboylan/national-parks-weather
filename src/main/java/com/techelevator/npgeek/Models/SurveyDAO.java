@@ -7,7 +7,7 @@ public interface SurveyDAO {
 
 
 
-	public void saveSurvey(String parkCode, String emailAddress, String state, String activityLevel);
+	public boolean saveSurvey(String parkCode, String emailAddress, String state, String activityLevel);
 	
 	public List<SurveyResults> getAllSurveyResults();
 }
