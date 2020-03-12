@@ -37,16 +37,17 @@
 			<form:errors style="color: red" path="state" /><br>
 		
 			<label class="checkbox" for="activityLevel">Activity Level</label><br>
-			<form:checkbox path="activityLevel" value="Mountain Climber" /><small>Mountain Climber</small>
-			<form:checkbox path="activityLevel" value="I Like to Move it" /><small>I Like to Move it</small>
-			<form:checkbox path="activityLevel" value="Walk in the park" /><small>Walk in the park</small>
-			<form:checkbox path="activityLevel" value="Couch Potato" /><small>Couch Potato</small>
+			<input type="radio" name="activityLevel" value="Mountain Climber" /><small>Mountain Climber</small>
+			<input type="radio" name="activityLevel" value="I Like to Move it" /><small>I Like to Move it</small>
+			<input type="radio" name="activityLevel" value="Walk in the park" /><small>Walk in the park</small>
+			<input type="radio" name="activityLevel" value="Couch Potato" /><small>Couch Potato</small>
+			
 			<form:errors style="color: red" path="activityLevel" /><br><br>
 			
 			<input class="submit" type="submit" value="Submit">
 		</form:form>
 	
-   
+ 
 </div>
 
 
