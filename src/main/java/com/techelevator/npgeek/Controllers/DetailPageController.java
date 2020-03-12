@@ -1,5 +1,7 @@
 package com.techelevator.npgeek.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,8 +26,8 @@ public class DetailPageController {
 	public String displayParkDetail(@RequestParam String code, ModelMap map) {
 		Park park = parkDAO.findParkByCode(code);
 		map.addAttribute("park", park);
-		Weather weather = weatherDAO.findWeatherByCode(code);
-		map.addAttribute("weather", weather);
+		List<Weather> weatherList = weatherDAO.findWeatherByCode(code);
+		map.addAttribute("forecast", weatherList);
 		
 		return "pageDetail";
 	}

@@ -1,17 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <c:import url="/WEB-INF/jsp/common/Header.jsp" />
 
 <section>
 
-	<h2>${park.parkName}</h2>
+	<h2>${park.parkName} (${park.state})</h2>
 	
 	<p>${park.quote} - ${park.quoteSource}</p>
 	
 	<table>
 		<tr>
 			<td>
-				<img src="<c:url value="/img/${park.parkCode}.jpg"/>" />
+				<img src="<c:url value="/img/parks/${fn:toLowerCase(park.parkCode)}.jpg"/>" />
 			</td>
 		</tr>
 		
@@ -19,8 +20,37 @@
 			<td>${park.description}</td>
 		</tr>
 		
+		<tr>
+			<td>Campsites: ${park.numOfCampsites}</td>
+			<td>Visitors: ${park.annualVisitors}/yr</td>
+			<td>Entry Fee: $${park.entryFee}</td>
+		</tr>
+		
+		<tr>
+			<td>Acreage: ${park.acreage}</td>
+			<td>Elevation: ${park.elevationInFt} ft</td>
+			<td>Trail Length: ${park.milesOfTrail} mi</td>
+		</tr>
+		
+		<tr>
+			<td>Unique Species: ${park.numAnimalSpecies}</td>
+			<td>Climate: ${park.climate}</td>
+			<td>Founded: ${park.yearFounded}</td>
+		</tr>
 		
 	</table>
+	
+	<h2>Today</h2>
+	
+	<c:forEach items="${forecast}" var="day">
+	
+		<div>
+			<img src="<c:url value="/img/weather/${day.forecast}.png"/>" />
+			<p>High: ${day.highTemp} Low: ${day.lowTemp}</p>
+			<p>${day.weatherMessage}</p>
+		</div>
+		
+	</c:forEach>
 		
 </section>
 
