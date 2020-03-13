@@ -18,7 +18,7 @@
 
 <div class="home">
 			<div class="homeImage">
-			<a href="/45-m3-java-capstone/DetailPage/${park.parkCode}"><img src="img/parks/${fn:toLowerCase(park.parkCode)}.jpg" /></a>
+			<a href="/45-m3-java-capstone/detail?code=${park.parkCode}"><img src="img/parks/${fn:toLowerCase(park.parkCode)}.jpg" /></a>
 			</div>
 			
 			<div class="homeText">
