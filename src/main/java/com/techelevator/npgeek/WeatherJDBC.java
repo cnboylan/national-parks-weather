@@ -1,5 +1,8 @@
 package com.techelevator.npgeek;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +27,19 @@ private JdbcTemplate jdbcTemplate;
 		weather.setLowTemp(results.getInt("low"));
 		weather.setHighTemp(results.getInt("high"));
 		weather.setForecast(results.getString("forecast"));
+		weather.setWeatherMessage(weather.getForecast());
 		return weather;
 	}
 	
-	public Weather findWeatherByCode(String parkCode) {
-		Weather weather = new Weather();
+	public List<Weather> findWeatherByCode(String parkCode) {
+		List<Weather> weatherList = new ArrayList<Weather>();
 		String query = "SELECT * FROM weather WHERE parkcode = ?";
-		SqlRowSet result = jdbcTemplate.queryForRowSet(query, parkCode);
-		if(result.next()) {
-			weather = mapRowToWeather(result);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(query, parkCode);
+		while(results.next()) {
+			Weather weather = mapRowToWeather(results);
+			weatherList.add(weather);
 		}
-		return weather;
+		return weatherList;
 	}
 
 	public void createWeather(Weather weather) {
