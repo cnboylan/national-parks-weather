@@ -38,12 +38,12 @@ public class JDBCSurveyDao implements SurveyDAO{
 	@Override
 	public List<SurveyResults> getAllSurveyResults() {
 		List<SurveyResults> surveyResultList = new ArrayList<SurveyResults>();
-		String getAllSurveyResults = "SELECT survey_result.parkcode, parkname, "
+		String getAllSurveyResults1 = "SELECT survey_result.parkcode, parkname, "
 				+ " count(survey_result.parkcode) AS surveycount FROM survey_result "
 				+ " JOIN park ON park.parkcode = survey_result.parkcode " 
 				+ " GROUP BY survey_result.parkcode, parkname ORDER BY surveycount DESC, parkname ASC";
 		SurveyResults theSurveyResult = new SurveyResults();
-		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllSurveyResults);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllSurveyResults1);
 		while (results.next()) {
 			theSurveyResult = mapRowToSurveyResult(results);
 			surveyResultList.add(theSurveyResult);

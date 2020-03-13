@@ -12,10 +12,14 @@
 <div>
 	<div>
 		<h2 id="surveyTitle">Survey Results</h2>
-		
-		<%-- <c:if test = "${ not empty message}">
-		<h2>Thank you for voting for ${message.parkName }!</h2>
-	</c:if> --%>
+	
+	<c:if test = "${not empty error}">
+		<h2>Sorry, you have already voted!</h2>
+		</c:if>
+	
+	 <c:if test = "${not empty message}">
+		<h2>Thank you for voting for!</h2>
+	</c:if>
 		<p class="tableData">Top Ranked Parks:</p>
 	</div>
 

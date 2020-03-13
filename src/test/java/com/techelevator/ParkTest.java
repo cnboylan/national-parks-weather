@@ -19,7 +19,7 @@ public class ParkTest {
 		park.setState("Florida");
 		park.setAcreage(420000);
 		park.setElevationInFt(42);
-		park.setMilesOfTrail(500.43);
+		park.setMilesOfTrail(500.43f);
 		park.setNumOfCampsites(1000);
 		park.setClimate("Hot");
 		park.setYearFounded(1860);
@@ -74,9 +74,12 @@ public class ParkTest {
 	@Test
 	public void park_miles_of_trail_works() {
 		//Act
-		park.getMilesOfTrail();
+		float miles = park.getMilesOfTrail();
 		//Assert
-		Assert.assertEquals(500.43, park.getMilesOfTrail());
+		
+		float expectedMiles = 500.43f;
+	
+		Assert.assertEquals(expectedMiles, miles, 0);
 	}
 	
 	@Test
