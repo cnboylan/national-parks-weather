@@ -42,7 +42,7 @@
 	
 	<div>
 	<h2>Today</h2>
-	<p>Temperature:<br><a href="#">Celsius</a> | <a href="#">Fahrenheit</a></p>
+	<p>Temperature:<br><a href="?code=${park.parkCode}&temp=2">Celsius</a> | <a href="?code=${park.parkCode}&temp=1">Fahrenheit</a></p>
 	</div>
 	
 	<c:forEach items="${forecast}" var="day">

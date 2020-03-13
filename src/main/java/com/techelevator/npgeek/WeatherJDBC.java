@@ -41,6 +41,16 @@ private JdbcTemplate jdbcTemplate;
 		}
 		return weatherList;
 	}
+	
+	public List<Weather> tempToCelsius(List<Weather> weatherList) {
+		for(Weather weather : weatherList) {
+			double high = (((weather.getHighTemp() - 32) * 5) / 9);
+			double low = (((weather.getLowTemp() - 32) * 5) / 9);
+			weather.setHighTemp((int)high);
+			weather.setLowTemp((int)low);
+		}
+		return weatherList;
+	}
 
 	public void createWeather(Weather weather) {
 		// TODO Auto-generated method stub
