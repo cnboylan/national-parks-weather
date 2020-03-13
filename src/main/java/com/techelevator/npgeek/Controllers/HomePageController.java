@@ -25,7 +25,7 @@ public class HomePageController {
 	
 	
 	
-	@RequestMapping(path="/DetailPage")
+	@RequestMapping(path="/pageDetail")
 	public String displayDetailPage() {
 		
 		
