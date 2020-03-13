@@ -1,7 +1,10 @@
 package com.techelevator.npgeek.Models;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Required;
 
 public class Survey {
 
@@ -12,15 +15,16 @@ public class Survey {
 		@Email(message="Email must be a valid email address")
 		private String emailAddress;
 		
-		@NotBlank(message="State is Required")
+		
 		private String state;
 		
-		@NotBlank(message="Activity Level is Required")
+		
 		private String activityLevel;
 		
-		@NotBlank(message="Park is Required")
+
 		private String parkName;
-		private String surveySum;
+		
+
 		
 		
 		public Survey() {
@@ -85,14 +89,7 @@ public class Survey {
 		}
 
 
-		public String getSurveySum() {
-			return surveySum;
-		}
-
-
-		public void setSurveySum(String surveySum) {
-			this.surveySum = surveySum;
-		}
+	
 		
 		
 		
