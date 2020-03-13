@@ -3,7 +3,7 @@ package com.techelevator.npgeek;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.time.LocalDate;
+
 import java.util.List;
 
 import org.junit.After;
@@ -51,7 +51,8 @@ public class JDBCSurveyDAOTest {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 		
 		dao = new JDBCSurveyDao();
-		mySurvey = new Survey();	
+		mySurvey = new Survey();
+		myResults = new SurveyResults();
 	}
 	
 
@@ -102,74 +103,57 @@ public class JDBCSurveyDAOTest {
 	}
 	
 	@Test
-	public void test_get_set_surveySum() {
+	public void test_get_set_code() {
 		String parkCode = "GNTF";
 		mySurvey.setParkCode(parkCode);
 		assertEquals("GNTF", mySurvey.getParkCode());
 	}
 	
 	@Test
-	public void get_all_surveys() {
-		List<SurveyResults> results  = dao.getAllSurveyResults();
-		assertNotNull(results);
-		mySurvey.setSurveyId(19);
-		mySurvey.setParkCode("GNTC");
-		mySurvey.setState("PA");
-		mySurvey.setEmailAddress("hiker10@yahoo.com");
-		dao.saveSurvey(19, emailAddress, state, activityLevel)
+	public void test_get_set_parkCode() {
+		String parkCode = "GNTF";
+		myResults.setParkCode(parkCode);
+		assertEquals("GNTF", myResults.getParkCode());
 	}
-//	
+	
+	@Test
+	public void test_get_set_parkName() {
+		String parkName = "Yellowstone";
+		myResults.setParkName(parkName);
+		assertEquals("Yellowstone", myResults.getParkName());
+	}
+	
+	@Test
+	public void test_get_set_surveySum() {
+		int surveySum = 5;
+		myResults.setSurveySum(surveySum);
+		assertEquals(5, myResults.getSurveySum());
+	}
+		
+	
+	
 //	@Test
-//	public void get_all_sites() {
-//		List<Site> results = dao.getAllSites();
-//		assertNotNull(results);	
-//		mySite.setCampgroundID(4);
-//		mySite.setSiteNumber(1);
-//		mySite.setMaxOccupancy(6);
-//		mySite.setAccessible(true);
-//		mySite.setMaxRvLength("35");
-//		mySite.setUtilities(false);
-//		dao.createSite(mySite);
+//	public void get_all_surveys() {
+//		List<SurveyResults> results  = dao.getAllSurveyResults();
+//		assertNotNull(results);
+//		mySurvey.setSurveyId(19);
+//		mySurvey.setParkCode("GNTC");
+//		mySurvey.setState("PA");
+//		mySurvey.setEmailAddress("hiker10@yahoo.com");
 //		
-//
-//		List<Site> results2 = dao.getAllSites();
+//		
+//		@Test
+//		public void save_survey() {
+//		
+//			
+//		List<SurveyResults> results1 = dao.getAllSurveyResults();
+//		dao.saveSurvey("GTN", "hiker10@yahoo.com", "PA", "Couch Potato");
+//		List<SurveyResults> results2 = dao.getAllSurveyResults();
 //		
 //		assertNotNull(results2);	
-//		assertEquals(results.size() + 1, results2.size());
+//		assertEquals(results1.size() + 1, results2.size());
 //		
 //	}
-//	
-//	@Test
-//	public void get_create_sites() {
-//		List<Site> results = dao.getAllSites();
-//		assertNotNull(results);	
-//		mySite.setCampgroundID(4);
-//		mySite.setSiteNumber(1);
-//		mySite.setMaxOccupancy(6);
-//		mySite.setAccessible(false);
-//		mySite.setMaxRvLength("35");
-//		mySite.setUtilities(true);
-//		dao.createSite(mySite);
-//		
-//
-//		List<Site> results2 = dao.getAllSites();
-//		
-//		assertNotNull(results2);	
-//		assertEquals(results.size() + 1, results2.size());
-//		
-//	}
-//	@Test
-//	public void get_sites_by_reservation_date() {
-//		List<Site> results = dao.getAvailableSitesByReservationDate(1, LocalDate.of(2020, 03, 13), LocalDate.of(2020, 03, 15));
-//		assertNotNull(results);	
-//
-//		resoDAO.createReservation(results.get(0).getSiteId(), "Hartmann", LocalDate.of(2020, 03, 13), LocalDate.of(2020, 03, 15));
-//		
-//		List<Site> results2 = dao.getAvailableSitesByReservationDate(1, LocalDate.of(2020, 03, 13), LocalDate.of(2020, 03, 15));
-//		
-//		assertNotNull(results2);	
-//		assertEquals(results.size() - 1, results2.size());
-//	}
-//	@Test
+
 	
 }

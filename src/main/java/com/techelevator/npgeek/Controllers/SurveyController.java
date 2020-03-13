@@ -4,6 +4,7 @@ package com.techelevator.npgeek.Controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,24 +54,26 @@ public class SurveyController {
 		
 		@RequestMapping(path="/survey", method=RequestMethod.POST)
 		public String submitSurvey (@Valid @ModelAttribute("survey") Survey survey, 
-									BindingResult result, ModelMap model, RedirectAttributes flash) {
-			
+									BindingResult result, ModelMap model, RedirectAttributes flash, HttpSession session) {
+
+			;
+			try {
+				surveyDAO.saveSurvey(survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel()); 
+					flash.addFlashAttribute("Message", survey);
+				} catch(DuplicateKeyException e) {
+					return "redirect:/errorPage";
+						
+						
+						
+				}
 			
 			if(result.hasErrors()) {
 				flash.addFlashAttribute("survey", survey);
 				flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "survey", result); 
 				return "redirect:/survey";
 			}
-	
-			try {
-			surveyDAO.saveSurvey(survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel());
-			} catch (DuplicateKeyException e) {
-				return "redirect:/survey";
-			}
-			
-////			if(surveyDAO.saveSurvey(survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel())) {
-//				flash.addFlashAttribute("message", survey);
-			 
+
+		
 			
 			return "redirect:/surveyResults";
 		}
@@ -93,6 +96,13 @@ public class SurveyController {
 			
 			return "surveyResults";
 			
+		}
+		
+		@RequestMapping("/errorPage") 
+		public String displayErrorPage() {
+			
+	
+			return "errorPage";
 		}
 		
 		public List<String> getStates() {

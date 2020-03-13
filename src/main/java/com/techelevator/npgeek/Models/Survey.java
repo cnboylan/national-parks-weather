@@ -1,10 +1,13 @@
 package com.techelevator.npgeek.Models;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 public class Survey {
 
@@ -24,13 +27,34 @@ public class Survey {
 
 		private String parkName;
 		
-
-		
+//		private boolean emailExist;
+//		private SurveyDAO dao = new JDBCSurveyDao();
+//		private JdbcTemplate jdbcTemplate;
 		
 		public Survey() {
 			
 			
 		}
+//		@AssertTrue(message="You have already voted!")
+//		public boolean isEmailExist() {
+//			
+//			String lookForEmail = "SELECT emailAddress FROM survey_result WHERE emailAddress = ? LIMIT 1";
+//					jdbcTemplate.update(lookForEmail, emailAddress); 
+//					
+//					
+//				
+//					SqlRowSet results = jdbcTemplate.queryForRowSet(lookForEmail);
+//			
+//			
+//			if(results != null) {
+//				return true;
+//			} else {
+//				return false;
+//			}
+//			
+//		}
+		
+		
 		
 		
 		public Survey(int surveyId, String parkCode, String emailAddress, String state, String activityLevel) {
@@ -87,6 +111,11 @@ public class Survey {
 		public void setParkName(String parkName) {
 			this.parkName = parkName;
 		}
+		
+		
+//		public void setEmailExist(boolean emailExist) {
+//			this.emailExist = emailExist;
+//		}
 
 
 	
