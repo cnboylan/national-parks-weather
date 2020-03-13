@@ -1,10 +1,8 @@
-﻿body {
-	background-color: #FFFFFF;
-	font-family: sans-serif;
-}
+﻿/* HEADER CSS */
 
 header {
 	margin: 25px;
+	background-color: #FFBF00;
 }
 
 header h1 {
@@ -54,3 +52,29 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   }
 
 }
+
+
+
+/* BODY CSS */
+
+body {
+	background-color: #FFFFFF;
+	font-family: sans-serif;
+	
+}
+
+/* HOMEPAGE.JSP CSS */
+.home > .homeImage {
+	
+}
+
+.home {
+	display: grid;
+	grid-template-columns: 1fr 3fr; 
+	grid-template-rows: 300px; 
+	grid-gap: 10px 20px; 
+	padding-top: 10px; 
+	padding-left: 15px;
+	
+}
+

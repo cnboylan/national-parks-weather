@@ -4,6 +4,7 @@
 
 
 <c:import url="/WEB-INF/jsp/common/Header.jsp" />
+<c:url value="/css/nationalparkgeek.css" var="cssHref" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +15,27 @@
 
 <body>
 
+
 <c:forEach var="park" items="${parks}">
 
 <div class="home">
+			
 			<div class="homeImage">
 			<a href="/45-m3-java-capstone/DetailPage/${park.parkCode}"><img src="img/parks/${fn:toLowerCase(park.parkCode)}.jpg" /></a>
 			</div>
 			
-			<div class="homeText">
-			<h2><c:out value="${park.parkName}" /></h2><br>
-			<c:out value="${park.state}" />
-			<c:out value="${park.description}" /> 
-			
+			<div class="homeParkName">
+			<h2><c:out value="${park.parkName}" /></h2>
 			</div>
+			
+			<div class="homeState">
+			<c:out value="${park.state}" /><br><br>
+			</div>
+			
+			<div>
+			<c:out value="${park.description}" /> <br><br><br><br>
+			</div>
+			
 	</div>
 </c:forEach>
 
