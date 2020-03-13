@@ -29,7 +29,7 @@ public class JDBCSurveyDao implements SurveyDAO{
 
 	@Override
 	public boolean saveSurvey(String parkCode, String emailAddress, String state, String activityLevel) {
-		long	 surveyId = getNextSurveyId();
+		int	 surveyId = getNextSurveyId();
 		String insertIntoSurvey = "INSERT INTO survey_result VALUES (?, ?, ?, ?, ?)";
 		jdbcTemplate.update(insertIntoSurvey, surveyId, parkCode, emailAddress, state, activityLevel);
 		return true;
@@ -52,10 +52,10 @@ public class JDBCSurveyDao implements SurveyDAO{
 		return surveyResultList;
 	}
 	
-	public long getNextSurveyId() {
+	public int getNextSurveyId() {
 		SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('seq_surveyid')");
 		if (nextIdResult.next()) {
-			return nextIdResult.getLong(1);
+			return nextIdResult.getInt(1);
 		}
 		else {
 			throw new RuntimeException("Something went wrong with survey sequence");

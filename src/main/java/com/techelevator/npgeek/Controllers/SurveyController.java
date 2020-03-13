@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -54,15 +55,21 @@ public class SurveyController {
 		public String submitSurvey (@Valid @ModelAttribute("survey") Survey survey, 
 									BindingResult result, ModelMap model, RedirectAttributes flash) {
 			
-			if (result.hasErrors()) {
-		
-				return "survey";
+			
+			if(result.hasErrors()) {
+				flash.addFlashAttribute("survey", survey);
+				flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "survey", result); 
+				return "redirect:/survey";
+			}
+	
+			try {
+			surveyDAO.saveSurvey(survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel());
+			} catch (DuplicateKeyException e) {
+				return "redirect:/survey";
 			}
 			
-			surveyDAO.saveSurvey(survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel());
-			
-//			if(surveyDAO.saveSurvey(survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel())) {
-				flash.addFlashAttribute("message", survey);
+////			if(surveyDAO.saveSurvey(survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel())) {
+//				flash.addFlashAttribute("message", survey);
 			 
 			
 			return "redirect:/surveyResults";
@@ -90,7 +97,7 @@ public class SurveyController {
 		
 		public List<String> getStates() {
 			List<String> states = new ArrayList<String>();
-			states.add("");
+			
 			states.add("AL");
 			states.add("AK");
 			states.add("AZ");
