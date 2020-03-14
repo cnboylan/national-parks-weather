@@ -5,6 +5,7 @@
 
 <c:import url="/WEB-INF/jsp/common/Header.jsp" />
 <c:url value="/css/nationalparkgeek.css" var="cssHref" />
+<link rel="stylesheet" href="<c:url value="/bulma.min.css"/>">
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,23 +21,20 @@
 
 <div class="home">
 			
-			<div class="homeImage">
-			<a href="/45-m3-java-capstone/detail?code=${park.parkCode}"><img src="img/parks/${fn:toLowerCase(park.parkCode)}.jpg" /></a>
-			</div>
+		
+			<a href="/45-m3-java-capstone/detail?code=${park.parkCode}"><img src="img/parks/${fn:toLowerCase(park.parkCode)}.jpg" class="homeImage"/></a>
+		
 			
-			<div class="homeParkName">
-			<h2><c:out value="${park.parkName}" /></h2>
-			</div>
+	<div class="homeParkInfo">
 			
-			<div class="homeState">
-			<c:out value="${park.state}" /><br><br>
-			</div>
+			<h2 class="homeParkName">${park.parkName}</h2>
 			
-			<div>
-			<c:out value="${park.description}" /> <br><br><br><br>
-			</div>
+			<h3 class="homeState">${park.state}</h3>
 			
+			<p class="homeDescription">${park.description}</p>
 	</div>
+</div>
+	
 </c:forEach>
 
 </body>

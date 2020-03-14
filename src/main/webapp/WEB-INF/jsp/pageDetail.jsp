@@ -45,16 +45,22 @@
 	<p>Temperature:<br><a href="?code=${park.parkCode}&temp=2">Celsius</a> | <a href="?code=${park.parkCode}&temp=1">Fahrenheit</a></p>
 	</div>
 	
+	<div class="forcast">
 	<c:forEach items="${forecast}" var="day">
 	
-		<div>
+		
 			<img src="<c:url value="/img/weather/${day.forecast}.png"/>" />
+			
+			<div class="fiveDayImage">
 			<p>High: ${day.highTemp} Low: ${day.lowTemp}</p>
+			</div>
+			
+			<div class="weatherMessage">
 			<p>${day.weatherMessage}</p>
-		</div>
+			</div>
 		
 	</c:forEach>
-		
+	</div>
 </section>
 
 <c:import url="/WEB-INF/jsp/common/Footer.jsp" />
