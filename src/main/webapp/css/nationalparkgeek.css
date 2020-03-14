@@ -1,8 +1,10 @@
 ﻿/* HEADER CSS */
 
 header {
-	margin: 25px;
-	background-color: #FFBF00;
+	width: 100%;
+	height: 135px;
+	background-color: #FDECB8;
+	
 }
 
 header h1 {
@@ -17,8 +19,10 @@ header p {
 
 header img {
 	height: 110px;
-	
 }
+
+
+
 /* css for Survey and Survey Result */
 
 #surveyTitle {
@@ -57,24 +61,76 @@ tr:nth-child(even) {background-color: #D3D3D3;}
 
 /* BODY CSS */
 
-body {
-	background-color: #FFFFFF;
+
+
+body{
+	background-color: #134CDC;
 	font-family: sans-serif;
 	
 }
 
 /* HOMEPAGE.JSP CSS */
-.home > .homeImage {
+body{
+	background-color: #C2FEFD;
+}
+.home{
+	display: flex;
+	margin-top: 25px;
+	background-color: 
+}
+
+.homeParkInfo{
+	display: flex;
+	flex-direction: column;
+	margin-left: 40px;
 	
 }
 
-.home {
-	display: grid;
-	grid-template-columns: 1fr 3fr; 
-	grid-template-rows: 300px; 
-	grid-gap: 10px 20px; 
-	padding-top: 10px; 
-	padding-left: 15px;
+
+
+
+.homeImage {
+	margin-top: 25px;
+}
+
+.homeParkName {
+	
+	}
+
+.homeState {
 	
 }
+
+.homeDescription {
+	width: 500px;
+	
+}
+
+
+
+/*DetailPage CSS*/
+
+.forcast{
+	display: flex;
+}
+
+.highLow {
+	display: flex-wrap;
+}
+
+.fiveDayImage{
+	display:flex;
+	flex-display: column;
+}
+
+
+
+
+
+
+
+
+
+
+
 
