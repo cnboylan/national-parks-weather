@@ -25,17 +25,27 @@ public class DetailPageController {
 	private WeatherDAO weatherDAO;
 	
 	@RequestMapping (path = "/detail")
-	public String displayParkDetail(@RequestParam String code, @RequestParam(defaultValue="1") int temp, ModelMap map, HttpSession session) {
+	public String displayParkDetail(@RequestParam String code, @RequestParam(required=false) String temp, ModelMap map, HttpSession session) {
 		Park park = parkDAO.findParkByCode(code);
 		map.addAttribute("park", park);
 		List<Weather> weatherList = null;
 		
-		if(temp==1) {
+		String value = (String) session.getAttribute("temp");
+		
+		if(value == null) {
+			value = "1";
+		} else if (!value.equals(temp) && temp != null) {
+			value = temp;
+		}
+		
+		if(value.equals("1")) {
 			weatherList = weatherDAO.findWeatherByCode(code);
-		} else if(temp==2) {
+		} else if(value.equals("2")) {
 			weatherList = weatherDAO.tempToCelsius(weatherDAO.findWeatherByCode(code));
 		}
-		session.setAttribute("forecast", weatherList);
+		
+		map.addAttribute("forecast", weatherList);
+		session.setAttribute("temp", value);
 		
 		return "pageDetail";
 	}
