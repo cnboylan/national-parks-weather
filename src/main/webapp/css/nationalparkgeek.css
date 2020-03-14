@@ -115,11 +115,12 @@ body{
 }
 
 .highLow {
-	display: flex-wrap;
+	display: block;
+	flex-display: column;
 }
 
 .fiveDayImage{
-	display:flex;
+	display: flex;
 	flex-display: column;
 }
 
