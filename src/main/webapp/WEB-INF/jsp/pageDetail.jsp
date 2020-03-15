@@ -45,22 +45,34 @@
 	<p>Temperature:<br><a href="?code=${park.parkCode}&temp=2">Celsius</a> | <a href="?code=${park.parkCode}&temp=1">Fahrenheit</a></p>
 	</div>
 	
-	<div class="forcast">
+	<div class="forcastImage">
 	<c:forEach items="${forecast}" var="day">
-	
-		
-			<img src="<c:url value="/img/weather/${day.forecast}.png"/>" />
-			
-			<div class="fiveDayImage">
-			<p>High: ${day.highTemp} Low: ${day.lowTemp}</p>
-			</div>
-			
-			<div class="weatherMessage">
-			<p>${day.weatherMessage}</p>
-			</div>
-		
+	<img src="<c:url value="/img/weather/${day.forecast}.png"/>" />
 	</c:forEach>
-	</div>
+		</div>	
+			<table>
+			<tr>
+			
+			<!-- <div class="highLow"> -->
+			<c:forEach items="${forecast}" var="day">
+			<td class="highLow">
+			<p>High: ${day.highTemp} Low: ${day.lowTemp}</p>
+			</td>
+			</c:forEach>
+			<!-- </div> -->
+			</tr>
+			<tr>
+			<!-- <div class="weatherMessage"> -->
+			<c:forEach items="${forecast}" var="day">
+			<td class="highLow">
+			<p>${day.weatherMessage}</p>
+			</td>
+			</c:forEach>
+			<!-- </div> -->
+			</tr>
+		</table>
+	
+	
 </section>
 
 <c:import url="/WEB-INF/jsp/common/Footer.jsp" />
