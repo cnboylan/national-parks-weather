@@ -43,7 +43,7 @@ header img {
 	text-align: center;
 }
 
-tr:nth-child(even) {background-color: #D3D3D3;}
+/* tr:nth-child(even) {background-color: #D3D3D3;} */
 
 .tableborder{
 	
@@ -110,18 +110,21 @@ body{
 
 /*DetailPage CSS*/
 
-.forcast{
+.forcastImage {
 	display: flex;
+	flex-display: column;
+	justify-content: space-between;
 }
 
 .highLow {
-	display: block;
-	flex-display: column;
+	width: 250px;
 }
 
-.fiveDayImage{
+.weatherMessage{
 	display: flex;
 	flex-display: column;
+	justify-content: space-between;
+	
 }
 
 
